@@ -1,7 +1,13 @@
 (ns app
-  (:require [cljsjs.c3 :as c3]))
+  (:require cljsjs.c3))
 
+(def chart-data
+  {:bindto "#chart"
+   :data   {:columns [["data1" 30 200 100 400 150 250]
+                      ["data2" 50 20 10 40 15 25]]}})
 
-(let [c (.. js/document (createElement "DIV"))]
-  (aset c "innerHTML" "<p>i'm dynamically created</p>")
-  (.. js/document (getElementById "container") (appendChild c)))
+(enable-console-print!)
+
+(defn init []
+  (prn chart-data)
+  (js/c3.generate (clj->js chart-data)))

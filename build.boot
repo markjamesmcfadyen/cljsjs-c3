@@ -25,8 +25,8 @@
         (watch)
         (reload :on-jsload 'app/init)
         (sift :add-jar {'cljsjs/c3 #"^cljsjs/c3/common/c3.min.css$"})
-        (cljs 
-          :optimizations    :none 
+        (cljs
+          :optimizations    :none
           :source-map       true
           :unified-mode     true
           :compiler-options {:warnings {:single-segment-namespace false}})))
